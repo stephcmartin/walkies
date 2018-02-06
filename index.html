@@ -13,13 +13,14 @@
 </head>
 <body>
   <h1>Can Waldo Go For Walkies Today? 🐶</h1>
+  <p class="message"></p>
     <div class='main-app'>
-        <form id='search'>
+        <!-- <form id='search'>
          <input type="text" class ="search-bar" placeholder="Search location" id="countryInput">
          <button class='search-btn' type='submit' id="submitWeather">
           <i class="fa fa-search class"></i>
          </button>
-        </form>
+        </form> -->
          </div>
         <div class ='weather-components'>
           <div class='title-section'>
@@ -31,15 +32,15 @@
           </div>
           <div class='temperture-section'>
            <i class="fa fa-thermometer-half cel"></i>
-           <p class='temp'>Loading...</p>
+           <p class='temp' id="temp">Loading...</p>
           </div>
 
           <div class='conditions'>
           <p class='day'>Evening</p>
           <p class='moisture'>Loading...</p>
-          <p class='wind'>Wind: W <span class=c>Loading...</span> </p>
+          <p class='wind'>Wind: <span class="w">Loading...</span></p>
           <p class='humidity'>Humidity: <span class='h'>Loading...</span></p>
-          <!-- <img class="icon" alt="Loading..." /> -->
+          <p class="icon"></p>
         </div>
     </div>
   </body>
