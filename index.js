@@ -23,12 +23,12 @@ else{
 
 // retriving location
 $(document).ready(function() {
-  $.getJSON('http://ipinfo.io', function(data) {
-    console.log('ipin data is', data),
-    console.log('data.loc is', data.loc),
-    console.log(data.region, data.country),
-    $(".location").text(data.region),
-    $('.location').append(' , ', data.country),
+  $.getJSON('http://ipinfo.io/json', function(data) {
+    console.log('ipin data is', data)
+    console.log('data.loc is', data.loc)
+    console.log(data.region, data.country)
+    $(".location").text(data.region)
+    $('.location').append(' , ', data.country)
     let location = data.loc.split(',');
     latitude = location[0];
     longitude = location[1];
@@ -47,8 +47,8 @@ function getWeather(latitude, longitude) {
     success: function (data){
       console.log('data is', data),
       console.log('the incorrect temperture in C is', (data.main.temp - 273.15)),
-      $(".temp").innerHTML(Math.round(data.main.temp - 273.15),'°C'),
-      // $('.temp').append('°C'),
+      $(".temp").text(Math.round(data.main.temp - 273.15)),
+      $('.temp').append('°C'),
       console.log('moisture', data.weather[0].main),
       $('.moisture').text(data.weather[0].main),
       console.log('wind data', data.wind.speed),
