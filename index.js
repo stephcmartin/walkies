@@ -23,7 +23,7 @@ else{
 
 // retriving location
 $(document).ready(function() {
-  $.getJSON('http://ipinfo.io/json', function(data) {
+  $.getJSON('https://ipinfo.io/json', function(data) {
     console.log('ipin data is', data);
     console.log('data.loc is', data.loc);
     console.log(data.region, data.country);
@@ -38,7 +38,7 @@ $(document).ready(function() {
 
 // updating UI
 function getWeather(latitude, longitude) {
-  let url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&APPID=d69f2008e97dcdb3702715154c478061';
+  let url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&APPID=d69f2008e97dcdb3702715154c478061';
   console.log('url for location is', url)
   $.ajax({
     url: url,
