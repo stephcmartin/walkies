@@ -24,11 +24,11 @@ else{
 // retriving location
 $(document).ready(function() {
   $.getJSON('http://ipinfo.io/json', function(data) {
-    console.log('ipin data is', data)
-    console.log('data.loc is', data.loc)
-    console.log(data.region, data.country)
-    $(".location").text(data.region)
-    $('.location').append(' , ', data.country)
+    console.log('ipin data is', data);
+    console.log('data.loc is', data.loc);
+    console.log(data.region, data.country);
+    $(".location").text(data.region);
+    $('.location').append(' , ', data.country);
     let location = data.loc.split(',');
     latitude = location[0];
     longitude = location[1];
@@ -45,19 +45,36 @@ function getWeather(latitude, longitude) {
     type: 'GET',
     dataType: 'jsonp',
     success: function (data){
-      console.log('data is', data),
-      console.log('the incorrect temperture in C is', (data.main.temp - 273.15)),
-      $(".temp").text(Math.round(data.main.temp - 273.15)),
-      $('.temp').append('°C'),
-      console.log('moisture', data.weather[0].main),
-      $('.moisture').text(data.weather[0].main),
-      console.log('wind data', data.wind.speed),
-      $('.w').text(data.wind.speed),
-      $('.h').text(data.main.humidity)
+      console.log('data is', data);
+      console.log('the incorrect temperture in C is', (data.main.temp - 273.15));
+      $(".temp").text(Math.round(data.main.temp - 273.15));
+      $('.temp').append('°C');
+      console.log('moisture', data.weather[0].main);
+      $('.moisture').text(data.weather[0].main);
+      console.log('wind data', data.wind.speed);
+      $('.w').text(data.wind.speed);
+      $('.h').text(data.main.humidity);
+      $('.h').append('%');
+      decisionLogic(data);
+      showWeather(data.weather);
     }
   })
 }
+function showWeather(conditions){
+  console.log('conditions array', conditions);
+  conditions.forEach(function(element){
+    console.log('element.main is', element.main);
+    $("#weather-icon").append(element.main, ', ')
+  })
+}
 
+function decisionLogic(weatherData){
+  if (false){
+    $("#message").text('Yes! He is going to be a very happy puppy.')
+  } else {
+    $("#message").text('No. He has to play inside. 😔')
+  }
+}
 
 $("#submitWeather").click(function () {
   event.preventDefault()
